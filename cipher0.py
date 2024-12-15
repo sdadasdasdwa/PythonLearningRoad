@@ -3,14 +3,24 @@ import secrets
 import base64
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
+import time
+
+"""
+第一次考虑能够加密且能够解密的方式,下述代码使用了 AES + Base36的方式对 original 输入进行加密，
+结果看来 并不是纯数字， 当时写的时候考虑用哈希把它转成对应的数字。
+"""
+
 
 # 自定义字符表，支持 36 进制
 CHARSET = string.digits + string.ascii_lowercase
 
 # AES 密钥和 IV（固定示例，实际中应使用安全生成的密钥）
-KEY = secrets.token_bytes(16)  # 16 字节密钥
-# KEY = "1231231212312312"  # 16 字节密钥
-IV = secrets.token_bytes(16)   # 16 字节初始向量
+# 定义密钥（16 字节）
+KEY = secrets.token_bytes(16)  
+# KEY = b"1234567890abcdef"  # 示例密钥，需确保长度为 16 字节
+# 16 字节初始向量
+IV = secrets.token_bytes(16)   
+IV = b"1234567890abcdef"
 
 def encode_to_base36(byte_data):
     """将字节数据编码为 6 位字符串"""
@@ -63,8 +73,13 @@ def decrypt_from_6_digits(encoded):
     # 转为数字
     return int(decrypted.decode('utf-8'))
 
+# 获取系统当前日期并转换为 8 位数字
+def get_current_date_as_original():
+    current_time = time.localtime()
+    return int(time.strftime("%Y%m%d", current_time))
+
 # 示例
-original = 12345678
+original = get_current_date_as_original()  # 系统日期 YYYYMMDD
 encoded = encrypt_to_6_digits(original)
 # decoded = decrypt_from_6_digits(encoded)
 
