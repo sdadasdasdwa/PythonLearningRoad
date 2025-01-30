@@ -45,9 +45,12 @@ def caesar_cipher(text, shift, mode="encrypt"):
 if __name__ == "__main__":
 
     original = "The Secret Password is Rosebud"
+    decryptStr = (
+        "UMMSVMAA: CvKwuuwv xibqmvkm qv xtivvqvo i zmdmvom bpib qa ewzbp epqtm."
+    )
     encryptAgain = "yes"
     while encryptAgain == "yes" or encryptAgain == "y":
         diplayIntro()
         numberChosen = chooseCave()
-        checkCave(numberChosen, original)
+        checkCave(numberChosen, decryptStr)
         encryptAgain = input("Do you want to play again?")
