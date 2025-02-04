@@ -26,10 +26,12 @@ def decryptMessage(key, message):
     column = 0
     row = 0
 
+    # 5. literate encryption string, put it into 8*4 matrix
     for symbol in message:
         plaintext[column] += symbol
         column += 1
 
+        # 6. while literate the last column or in the shaded circumstance
         if (column == numOfColumes) or (
             column == numOfColumes - 1 and row >= numOfRows - numOfShadedBoxes
         ):
