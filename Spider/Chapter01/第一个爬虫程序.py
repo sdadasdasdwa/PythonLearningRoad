@@ -11,4 +11,5 @@ response = urlopen(url)
 # 输出内容可能包含 Unicode 编码的中文，如 \u767e\u5ea6 表示“百度”。
 # 如果你想以正常字符串形式打印内容，可以加上 .decode()
 
-print(response.read())
+# print(response.read())
+print(response.read().decode())
