@@ -12,4 +12,9 @@ response = urlopen(url)
 # 如果你想以正常字符串形式打印内容，可以加上 .decode()
 
 # print(response.read())
-print(response.read().decode())
+# print(response.read().decode())
+
+with open("result.html", "w", encoding="utf-8") as f:
+    f.write(response.read().decode())
+
+print("over!")
