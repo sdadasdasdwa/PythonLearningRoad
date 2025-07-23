@@ -10,3 +10,4 @@ resp = requests.get(url,headers=headers)
 
 print(resp)
 print(resp.text)
+resp.close()

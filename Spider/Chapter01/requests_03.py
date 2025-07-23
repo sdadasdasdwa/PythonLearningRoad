@@ -20,3 +20,5 @@ resp = requests.get(url=url, params=params,headers=headers)
 # print(resp.request.headers)
 # print(resp.text)
 print(resp.json())
+
+resp.close()
