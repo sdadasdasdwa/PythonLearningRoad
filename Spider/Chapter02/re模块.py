@@ -29,7 +29,9 @@ s = """
 <div class='chuzihang'><span id='3'>楚子航</span></div>
 <div class='turtle'><span id='4'>象龟</span></div>
 """
-obj = re.compile(r"<div class='.*?'><span id='\d+'>.*?</span></div>",re.S)  # re.S代表让.匹配换行符
+
+# 用括号括起来后，加入?P<xxx>可以把匹配到的内容扔进xxx，之后group从xxx拿东西
+obj = re.compile(r"<div class='.*?'><span id='\d+'>(?P<wahaha>.*?)</span></div>",re.S)  # re.S代表让.匹配换行符
 result = obj.finditer(s)  
 for it in result:
-    print(it.group())
+    print(it.group("wahaha"))
