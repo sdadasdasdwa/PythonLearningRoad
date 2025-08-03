@@ -21,3 +21,15 @@ print(s.group())
 obj = re.compile("\d+")
 ret = obj.findall("10123，我男朋友电话是：123123")
 print(ret)
+
+# 例子
+s = """
+<div class='kaisa'><span id='1'>凯撒</span></div>
+<div class='sakura'><span id='2'>路明非</span></div>
+<div class='chuzihang'><span id='3'>楚子航</span></div>
+<div class='turtle'><span id='4'>象龟</span></div>
+"""
+obj = re.compile(r"<div class='.*?'><span id='\d+'>.*?</span></div>",re.S)  # re.S代表让.匹配换行符
+result = obj.finditer(s)  
+for it in result:
+    print(it.group())
