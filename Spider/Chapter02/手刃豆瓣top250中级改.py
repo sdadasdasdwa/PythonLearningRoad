@@ -35,7 +35,9 @@ class DoubanSpider:
         headers = self.get_headers()
         proxy = self.get_proxy()
         try:
-            response = requests.get(url, headers=headers, proxies=proxy, timeout=10)
+            # response = requests.get(url, headers=headers, proxies=proxy, timeout=10) 代理池还未配置好
+            response = requests.get(url, headers=headers, timeout=10)
+            print(f"[INFO] 正在爬取: {url}")
             response.raise_for_status()
             return response.text
         except requests.RequestException as e:
@@ -70,11 +72,13 @@ class DoubanSpider:
                 dic['movieyear'] = dic['movieyear'].strip()
                 data_row = list(dic.values())
                 all_data.append(data_row)
-                print(f"[INFO] 本页获取 {len(data_row)} 条数据，累计 {len(all_data)} 条")
+            print(f"[INFO] 累计获取 {len(all_data)} 条")
             # 防止请求太快，降低被封风险
-            time.sleep(random.uniform(1.5, 3.5))
-        self.save_to_csv(all_data, "./Spider/Chapter02/douban_top250.csv")
-        print("爬取完成，数据已保存到 ./Spider/Chapter02/douban_top250.csv")
+            delay = random.uniform(1.5, 3.5)
+            print(f"[INFO] 等待 {delay:.2f} 秒后继续爬取...")
+            time.sleep(delay)
+        self.save_to_csv(all_data, "./Spider/Chapter02/douban_top250_中级.csv")
+        print("爬取完成，数据已保存到 ./Spider/Chapter02/douban_top250_中级.csv")
 
 if __name__ == "__main__":
     spider = DoubanSpider()
