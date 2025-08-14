@@ -9,7 +9,8 @@ desired_caps = {
     "appPackage": "cn.damai",  # 应用包名
     "appActivity": ".homepage.MainActivity",      # 启动的活动
     "noReset": True,                    # 不重置应用数据
-    "automationName": "UiAutomator2"
+    "automationName": "UiAutomator2",
+    "newCommandTimeout": 300,           # 增加超时时间
 }
 
 options = UiAutomator2Options().load_capabilities(desired_caps)
