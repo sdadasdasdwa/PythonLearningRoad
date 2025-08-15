@@ -3,6 +3,9 @@ from appium.options.android import UiAutomator2Options
 from selenium.webdriver.common.by import By
 import time
 from config import Config
+import os
+
+print("当前工作目录:", os.getcwd())
 
 # 加载配置信息
 config = Config.load_config()
