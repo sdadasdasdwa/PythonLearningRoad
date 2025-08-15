@@ -1,7 +1,7 @@
 import json
 
 class Config:
-    def __init__(self):
+    def __init__(self, server_url, keyword, users, city, date, price, if_commit_order):
         self.server_url = server_url
         self.keyword = keyword
         self.users = users
@@ -12,7 +12,7 @@ class Config:
         
     @staticmethod
     def load_config():
-        with open('config.json', 'r', encoding='utf-8') as config_file:
+        with open('./config.json', 'r', encoding='utf-8') as config_file:
             config = json.load(config_file)
         return Config(config['server_url'],
                       config['keyword'],
