@@ -12,7 +12,7 @@ class Config:
         
     @staticmethod
     def load_config():
-        with open('./config.json', 'r', encoding='utf-8') as config_file:
+        with open('E:\Project\ASCD\PythonLearningRoad\AppiumTest\config.json', 'r', encoding='utf-8') as config_file:
             config = json.load(config_file)
         return Config(config['server_url'],
                       config['keyword'],
