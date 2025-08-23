@@ -1,11 +1,32 @@
 import requests
 
-url = "https://www.dytt8899.com/"
+def fetch_html(url, headers):
+    """获取网页源码"""
+    try:
+        res = requests.get(url, headers=headers, timeout=10,verify=False)   # verify=False去掉安全验证
+        res.encoding = "gbk"
+        res.raise_for_status()  # 检查请求是否成功
+        return res.text
+    except requests.RequestException as e:
+        print(f"[ERROR] 请求失败: {e}")
+        return ""
 
-headers = {
-    "user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
-}
+def parse_html():
+    pass
 
-resp = requests.get(url=url,headers=headers,verify=False)   # verify=False去掉安全验证
-resp.encoding = "gbk"
-print(resp.text)
+def save_to_csv():
+    pass
+
+
+def main():
+    url = "https://www.dytt8899.com/"
+    headers = {
+        "user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36"
+    }
+    
+    html = fetch_html(url,headers)
+    
+
+
+if __name__ == "__main__":
+    main()
