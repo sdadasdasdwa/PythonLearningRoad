@@ -1,9 +1,10 @@
 import requests
+import re
 
 def fetch_html(url, headers):
     """获取网页源码"""
     try:
-        res = requests.get(url, headers=headers, timeout=10,verify=False)   # verify=False去掉安全验证
+        res = requests.get(url, headers=headers, timeout=10)   # verify=False去掉安全验证
         res.encoding = "gbk"
         res.raise_for_status()  # 检查请求是否成功
         return res.text
@@ -11,8 +12,15 @@ def fetch_html(url, headers):
         print(f"[ERROR] 请求失败: {e}")
         return ""
 
-def parse_html():
-    pass
+def parse_html(html):
+    """用正则解析电影信息"""
+    pattern = re.compile(r'2025必看热片.*?<ul>(?P<hotmovie>.*?)</ul>',re.S)
+    # results = []
+    for it in pattern.finditer(html):
+        hotmovie = it.group("hotmovie")
+        print(hotmovie)
+        # results.append(it.group("hotmovie"))
+    # print(results)
 
 def save_to_csv():
     pass
@@ -26,7 +34,9 @@ def main():
     
     html = fetch_html(url,headers)
     
-
+    parse_html(html)
+    
+    save_to_csv()
 
 if __name__ == "__main__":
     main()
