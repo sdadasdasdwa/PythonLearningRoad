@@ -15,12 +15,15 @@ def fetch_html(url, headers):
 def parse_html(html):
     """用正则解析电影信息"""
     pattern = re.compile(r'2025必看热片.*?<ul>(?P<hotmovie>.*?)</ul>',re.S)
-    # results = []
+    hotmovie = ''
     for it in pattern.finditer(html):
         hotmovie = it.group("hotmovie")
-        print(hotmovie)
-        # results.append(it.group("hotmovie"))
-    # print(results)
+    patternhref = re.compile(r"href='(?P<href>.*?)'",re.S)
+    results = []    # 将提取的网页网址部分放在这里
+    for it in patternhref.finditer(hotmovie):
+        results.append(it.group("href"))
+    return results
+    
 
 def save_to_csv():
     pass
@@ -34,7 +37,10 @@ def main():
     
     html = fetch_html(url,headers)
     
-    parse_html(html)
+    # 存储热门电影栏目每条网页网址
+    adresses = []
+    adresses.extend(parse_html(html))
+    print(adresses)
     
     save_to_csv()
 
