@@ -40,7 +40,7 @@ def parse_children_html(children_html):
 
 def save_to_csv(filename, rows):
     
-    with open(filename, mode="w", newline='', encoding='utf-8-sig') as f:
+    with open(filename, mode="w", encoding='utf-8-sig') as f:
         writer = csv.writer(f)
         writer.writerow(["电影名", "年份", "网址"])  # 表头
         for row in rows:
