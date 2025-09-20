@@ -79,6 +79,26 @@ d2_array[1,2:4] => array([8,9])
 
 ### 读取文件数据
 
+```python
+pd.read_csv("文件名")
+```
 
+![读取文件数据](./2-4-10读取文件数据.png)
 
+### 连接数据帧
 
+```python
+pd.concat([df_1, df_2])         # 纵向连接
+pd.concat([df_1, df_2], axis=1) # 横向连接
+```
+
+![连接数据帧](./2-4-11连接数据帧.png)
+
+### 数据帧的列操作
+
+```python
+print(sample_df.col2)         # 使用点操作符按列名提取数据
+print(sample_df["col2"])         # 使用方括号
+print(sample_df["col2", "col3"])   # 可以提取多个列
+print(sample_df.drop("col2", axis=1))    # 删除指定的列
+```
