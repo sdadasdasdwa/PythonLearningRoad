@@ -29,11 +29,14 @@ sp.sum(fish_data) => 10         # 总和
 len(fish_data) => 10            # 样本容量
 ```
 
-### 均值
+### 均值(期望值)
 
 ```python
 N = len(fish_data)
 S = sp.sum(fish_data)
 avg = S / N
+
+# 等价替换
+sp.mean(fish_data)
 ```
 
