@@ -102,3 +102,14 @@ print(sample_df["col2"])         # 使用方括号
 print(sample_df["col2", "col3"])   # 可以提取多个列
 print(sample_df.drop("col2", axis=1))    # 删除指定的列
 ```
+
+### 数据帧的行操作
+
+```python
+print(sample_df.head(n=3))              # 提取最上面3行
+print(sample_df.query('index == 0'))    # 使用query灵活提取第一行
+print(sample_df.query('col3 == "A"'))   # 使用query按条件提取
+print(sample_df.query('col3 == "A"' | 'col3 == "D"'))      # 使用query按条件OR提取
+print(sample_df.query('col3 == "A"' | 'col1 == 3'))        # 使用query按条件AND提取
+print(sample_df.query('col3 == "A"')[["col2","col3"]])     # 同时指定行和列的条件
+```
