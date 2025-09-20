@@ -40,3 +40,20 @@ avg = S / N
 sp.mean(fish_data)
 ```
 
+### 样本方差
+
+```python
+sigma_2_sample = sp.sun((fish_data-mu)** 2) / N
+
+# 等价替换
+sp.var(fish_data, ddof = 0)
+```
+
+### 无偏方差
+
+```python
+sigma_2_sample = sp.sun((fish_data-mu)** 2) / (N-1)
+
+# 等价替换
+sp.var(fish_data, ddof = 1)
+```
