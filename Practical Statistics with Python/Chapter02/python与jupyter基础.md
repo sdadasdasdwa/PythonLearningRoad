@@ -113,3 +113,18 @@ print(sample_df.query('col3 == "A"' | 'col3 == "D"'))      # 使用query按条�
 print(sample_df.query('col3 == "A"' | 'col1 == 3'))        # 使用query按条件AND提取
 print(sample_df.query('col3 == "A"')[["col2","col3"]])     # 同时指定行和列的条件
 ```
+
+### 序列
+
+从数据帧取出1列会得到一个叫做序列的东西。
+
+```python
+type(sample_df.col2) => pandas.core.series.Series
+```
+
+序列与数组用法相似，但还是用数组更方便。如果想把序列转为数据，请使用np.array()。
+
+访问序列的.values函数也可以直接得到数组。
+
+
+![序列](./2-4-14序列.png)
