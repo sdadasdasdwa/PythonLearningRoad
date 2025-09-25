@@ -57,3 +57,29 @@ sigma_2_sample = sp.sun((fish_data-mu)** 2) / (N-1)
 # 等价替换
 sp.var(fish_data, ddof = 1)
 ```
+
+### 标准差
+
+```python
+sigma_2 = sp.sqrt(sigma_2_sample)
+
+# 等价替换
+sp.std(fish_data, ddof = 1)
+```
+
+### 标准化
+
+标准化就是把均值转化为0，把标准差(方差)转化为1。
+
+要使均值为0，只需用所有样本减去均值即可。
+
+同样，要使数据的标准差(方差)为1，只需用所有样本除以标准差即可。
+
+
+### 其他统计量
+
+```python
+sp.amax()    # 求最大值
+sp.amin()    # 求最小值
+sp.median()     # 求中位数
+```
