@@ -138,3 +138,14 @@ for i in range(0,10000):
 
 ### 样本均值与总体均值相近
 
+### 定义用来计算样本均值的函数
+
+```python
+def cal_sample_mean(size,n_trial):
+    sample_mean_array = np.zeros(size)
+    for i in range(0,n_trial):
+        sample = population.rvs(size=size)
+        sample_mean_array[0] = sp.mean(sample)
+    return sample_mean_array
+```
+
