@@ -102,3 +102,17 @@ sns.joinplot(xlabel,ylabel,data,color)   # 同时绘制散点图和直方图
 
 sns.pairplot(xxx...)     # 散点矩阵图
 ```
+
+## 用python模拟抽样
+
+```python
+# 从样本中进行抽样,size是容量，replace=false代表是不放回抽样
+np.random.choice(data,size = 5, replace=False)
+
+# 使用函数stats.norra.pdf计算概率密度,loc为均值，scale为标准差
+stats.norra.pdf(x = x, loc = 4, scale = 0.8)
+
+# 用stats.norm.rvs函数直接生成服从正态分布的随机数
+stats.norra.pdf(loc = 4, scale = 0.8， size = 10)
+
+```
