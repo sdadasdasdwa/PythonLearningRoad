@@ -149,3 +149,8 @@ def cal_sample_mean(size,n_trial):
     return sample_mean_array
 ```
 
+### 不同样本容量所得的样本均值的分布
+
+样本容量越大，样本均值越集中在总体均值的附近。
+
+
