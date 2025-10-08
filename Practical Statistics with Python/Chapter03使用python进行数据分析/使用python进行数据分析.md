@@ -136,3 +136,5 @@ for i in range(0,10000):
     sample_mean_array[i] = sp.mean(sample)
 ```
 
+### 样本均值与总体均值相近
+
