@@ -109,10 +109,30 @@ sns.pairplot(xxx...)     # 散点矩阵图
 # 从样本中进行抽样,size是容量，replace=false代表是不放回抽样
 np.random.choice(data,size = 5, replace=False)
 
-# 使用函数stats.norra.pdf计算概率密度,loc为均值，scale为标准差
-stats.norra.pdf(x = x, loc = 4, scale = 0.8)
+# 使用函数stats.norm.pdf计算概率密度,loc为均值，scale为标准差
+stats.norm.pdf(x = x, loc = 4, scale = 0.8)
 
 # 用stats.norm.rvs函数直接生成服从正态分布的随机数
-stats.norra.pdf(loc = 4, scale = 0.8， size = 10)
-
+stats.norm.rvs(loc = 4, scale = 0.8， size = 10)
 ```
+
+## 样本统计量的性质
+
+### 样本分布
+
+**样本分布**是样本的统计量所服从的概率分布。
+
+### 多次计算样本均值
+
+```python
+# 生成正态分布
+population = stats.norm(loc = 4, scale = 0.8， size = 10)
+# 生成一个样本容量为10000的矩阵数组
+sample_mean_array = np.zeros(10000)
+
+# 遍历10000次
+for i in range(0,10000):
+    sample = population.rvs(size=10)
+    sample_mean_array[i] = sp.mean(sample)
+```
+
