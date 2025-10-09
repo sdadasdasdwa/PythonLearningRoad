@@ -234,3 +234,7 @@ stats.norm.pdf(loc=4,scale=0.8,x=3)
 使用scipy.stat的stats.norm.ppf(percent point function)方法
 
 ![百分位数实现](./3-6-7百分位数实现.png)
+
+### 3-6-8 标准正态分布
+
+![标准正态分布](./3-6-8标准正态分布.png)
