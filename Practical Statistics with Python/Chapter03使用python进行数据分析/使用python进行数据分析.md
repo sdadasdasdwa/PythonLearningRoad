@@ -210,3 +210,9 @@ def cal_sample_mean(size,n_trial):
 ```python
 stats.norm.pdf(loc=4,scale=0.8,x=3)
 ```
+
+### 3-6-3 样本小于等于某值的比例
+
+![样本小于等于某值的比例](./3-6-3样本小于等于某值的比例.png)
+
+
