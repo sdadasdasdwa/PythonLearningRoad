@@ -225,5 +225,12 @@ stats.norm.pdf(loc=4,scale=0.8,x=3)
 
 ![累积分布函数实现](./3-6-5累积分布函数实现.png)
 
+### 3-6-6 左侧概率与百分位数
 
+![左侧概率与百分位数](./3-6-6左侧概率与百分位数.png)
 
+### 3-6-7 百分位数实现
+
+使用scipy.stat的stats.norm.ppf(percent point function)方法
+
+![百分位数实现](./3-6-7百分位数实现.png)
