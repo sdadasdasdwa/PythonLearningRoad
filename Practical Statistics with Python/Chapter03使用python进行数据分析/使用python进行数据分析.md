@@ -257,4 +257,19 @@ stats.norm.pdf(loc=4,scale=0.8,x=3)
 
 ## 3-7 参数估计
 
+## 3-7-9 区间估计
+
+计算区间估计所需的3个要素为自由度（样本容量-1入样本均值、标准误差。
+
+自由度就是样本容量减1。接着求标准误差。
+
+最后把这些数据代入Stats.t.interval函数，求得置信区间。
+
+```python
+interval = stats.t.interval(alpha = 0.95,df = df,loc=mu, scale=se)
+```
+
+参数alpha是置信水平，df是自由度，1OC是样本均值，scale是标准误差.
+
+输出的第1个数是下置信界限，第2个数是上置信界限.
 
