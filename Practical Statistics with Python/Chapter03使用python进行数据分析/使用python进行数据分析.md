@@ -293,3 +293,8 @@ interval = stats.t.interval(alpha = 0.95,df = df,loc=mu, scale=se)
 
 ![定义存在显著性差异](./3-8-4定义存在显著性差异.png)
 
+### 3-8-5 均值差异大不代表存在显著性差异
+
+### 3-8-6 t值
+
+![t值](./3-8-6t值.png)
