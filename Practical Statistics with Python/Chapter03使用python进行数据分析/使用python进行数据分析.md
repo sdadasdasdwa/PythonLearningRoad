@@ -92,7 +92,7 @@ sns.set()    # 图片背景会有变化
 
 # bins=各组频数，5表示分割成5组，kde=False表示禁用核密度估计。
 # 通过核密度估计将直方图平滑化，不使用kde
-sns.displot(data,bins=5,color='',kde=False)     # 直方图
+sns.distplot(data,bins=5,color='',kde=False)     # 直方图
 
 sns.boxplot(xlabel,ylabel,data,color)   # 箱型图
 sns.violinplot(xlabel,ylabel,data,color)    # 小提琴图
